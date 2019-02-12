@@ -20,9 +20,9 @@ async function main() {
 
   // Show currently playing song.
   player.addEventListener('playing', ({ detail: { id } }) => {
-    const current = document.getElementsByClassName("playing");
-    while (current.length) current[0].classList.remove("playing");
-    document.getElementById(`video-${id}`).classList.add("playing");
+    const current = document.getElementsByClassName('playing');
+    while (current.length) current[0].classList.remove('playing');
+    document.getElementById(`video-${id}`).classList.add('playing');
   });
 
   player.playNext();
@@ -66,11 +66,11 @@ class Player {
     this.next = (idx + 1) % this.queue.length;
 
     // Load video into player. Will eventually fire 'ready'.
-    const { id, type = "youtube", title = "" } = video;
+    const { id: src, type = 'youtube', title = '' } = video;
     this.plyr.source({
       type: 'video',
-      title: title,
-      sources: [{ src: id, type }]
+      title,
+      sources: [{ src, type }]
     });
     // Notify that video was loaded.
     this.el.dispatchEvent(new CustomEvent('playing', { detail: video }));
