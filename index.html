@@ -1,0 +1,23 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.plyr.io/2.0.18/plyr.css">
+  <link rel="stylesheet" href="style.css"></link>
+</head>
+<body>
+  <div class="player">
+    <video id="player-view"></video>
+  </div>
+  <div id="playlist">
+    <a href="#" v-for="video in videos">
+      <img v-bind:src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"
+           v-on:click="play(video, $event)"
+           v-bind:id="`video-${video.id}`"/>
+    </a>
+  </div>
+  <script type="text/javascript" src="https://cdn.plyr.io/2.0.18/plyr.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

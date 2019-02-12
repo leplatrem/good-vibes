@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: #aaa;
+  font-family: sans-serif;
+}
+
+#playlist a {
+   display: inline-block;
+}
+
+.playing {
+  border: solid 3px white;
+}
