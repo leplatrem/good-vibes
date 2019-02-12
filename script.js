@@ -48,7 +48,7 @@ class Player {
   async init() {
     // Setup plry in DOM.
     this.plyr = plyr.setup(this.el, {
-      controls: ['play-large'],
+      controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'airplay', 'fullscreen'],
     })[0];
     // Wait for initialization.
     await new Promise((resolve) => this.plyr.on('ready', resolve));
