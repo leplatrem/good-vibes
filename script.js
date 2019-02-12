@@ -1,8 +1,7 @@
 window.addEventListener('load', main);
 
 async function main() {
-  const player = new Player('player-view');
-  player.queue = videos;
+  const player = new Player('player-view', videos);
 
   const playlist = new Vue({
     el: '#playlist',
@@ -20,12 +19,9 @@ async function main() {
   await player.init();
 
   // Show currently playing song.
-  player.addEventListener('playing', (e) => {
-    const id = e.detail.id;
+  player.addEventListener('playing', ({ detail: { id } }) => {
     const current = document.getElementsByClassName("playing");
-    while (current.length) {
-      current[0].classList.remove("playing");
-    }
+    while (current.length) current[0].classList.remove("playing");
     document.getElementById(`video-${id}`).classList.add("playing");
   });
 
@@ -34,7 +30,7 @@ async function main() {
 
 
 class Player {
-  constructor(elt) {
+  constructor(elt, queue) {
     this.el = document.getElementById(elt);
     // Use its DOM element to dispatch events.
     this.addEventListener = this.el.addEventListener.bind(this.el);
@@ -42,7 +38,7 @@ class Player {
     // https://plyr.io instance.
     this.plyr = null;
 
-    this.queue = [];
+    this.queue = queue;
     this.next = 0;
   }
 
@@ -67,7 +63,7 @@ class Player {
   play(video) {
     // Continue playing after this video.
     const idx = this.queue.findIndex(({ id }) => video.id == id);
-    this.next = idx + 1;
+    this.next = (idx + 1) % this.queue.length;
 
     // Load video into player. Will eventually fire 'ready'.
     const { id, type = "youtube", title = "" } = video;
@@ -81,11 +77,6 @@ class Player {
   }
 
   playNext() {
-    if (this.queue.length > 0) {
-      this.play(this.queue[this.next]);
-    } else {
-      // Nothing to play.
-      this.plyr.pause();
-    }
+    this.play(this.queue[this.next]);
   }
 }
