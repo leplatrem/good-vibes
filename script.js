@@ -43,6 +43,7 @@ class Player {
     this.plyr = null;
 
     this.queue = [];
+    this.next = 0;
   }
 
   async init() {
@@ -64,9 +65,9 @@ class Player {
   }
 
   play(video) {
-    // Truncate queue starting from this video.
+    // Continue playing after this video.
     const idx = this.queue.findIndex(({ id }) => video.id == id);
-    this.queue = this.queue.slice(idx + 1);
+    this.next = idx + 1;
 
     // Load video into player. Will eventually fire 'ready'.
     const { id, type = "youtube", title = "" } = video;
@@ -81,7 +82,7 @@ class Player {
 
   playNext() {
     if (this.queue.length > 0) {
-      this.play(this.queue[0]);
+      this.play(this.queue[this.next]);
     } else {
       // Nothing to play.
       this.plyr.pause();
