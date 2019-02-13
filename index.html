@@ -9,10 +9,10 @@
     <video id="player-view"></video>
   </div>
   <div id="playlist">
-    <a href="#" v-for="video in videos">
+    <a href="#" v-for="video in videos"
+                v-bind:id="`video-${video.id}`">
       <img v-bind:src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"
-           v-on:click="play(video, $event)"
-           v-bind:id="`video-${video.id}`"/>
+           v-on:click="play(video, $event)"/>
     </a>
   </div>
   <script type="text/javascript" src="https://cdn.plyr.io/2.0.18/plyr.js"></script>

@@ -6,10 +6,21 @@ html, body {
   font-family: sans-serif;
 }
 
-#playlist a {
-   display: inline-block;
+#playlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 5px;
 }
 
-.playing {
+#playlist a {
+  opacity: 0.7;
+}
+
+#playlist a img {
+   max-width: 100%;
+}
+
+#playlist a.playing {
   border: solid 3px white;
+  opacity: 1.0;
 }
