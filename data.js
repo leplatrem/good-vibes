@@ -167,7 +167,6 @@ const videos = [
   { id: "2PNmicKj2_0" },
   { id: "ak2TekxUvZM" },
   { id: "6tndytTqloo" },
-  { id: "AcHHE9bvLgY" },
   { id: "lc2n58vzhz8" },
   { id: "Z6AJGP-lIJo" },
   { id: "ci6ruPl6ga8" },
@@ -179,7 +178,6 @@ const videos = [
   { id: "zUc0cXMp-sQ" },
   { id: "WypZw06NOPE" },
   { id: "jhgVu2lsi_k" },
-  { id: "joq114XAPM8" },
   { id: "Y5llmJQWCts" },
   { id: "nnxPKY7NSoM" }
 ];
