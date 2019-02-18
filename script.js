@@ -1,7 +1,10 @@
 window.addEventListener('load', main);
 
 async function main() {
+  const videos = await (await fetch("data.json")).json();
+
   const player = new Player('player-view', videos);
+  await player.init();
 
   const playlist = new Vue({
     el: '#playlist',
@@ -13,10 +16,11 @@ async function main() {
         e.preventDefault();
         player.play(video);
       }
+    },
+    mounted: () => {
+      player.playNext();
     }
   });
-
-  await player.init();
 
   // Show currently playing song.
   player.addEventListener('playing', ({ detail: { id } }) => {
@@ -24,8 +28,6 @@ async function main() {
     while (current.length) current[0].classList.remove('playing');
     document.getElementById(`video-${id}`).classList.add('playing');
   });
-
-  player.playNext();
 }
 
 

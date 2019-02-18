@@ -3,6 +3,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdn.plyr.io/2.0.18/plyr.css">
   <link rel="stylesheet" href="style.css"></link>
+  <link rel="preload" href="data.json" as="fetch"></link>
 </head>
 <body>
   <div class="player">
@@ -10,14 +11,14 @@
   </div>
   <div id="playlist">
     <a href="#" v-for="video in videos"
-                v-bind:id="`video-${video.id}`">
-      <img v-bind:src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"
-           v-on:click="play(video, $event)"/>
+                v-bind:id="`video-${video.id}`"
+                v-bind:title="`${video.title}`"
+                v-on:click="play(video, $event)">
+      <img v-bind:src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"/>
     </a>
   </div>
   <script type="text/javascript" src="https://cdn.plyr.io/2.0.18/plyr.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script type="text/javascript" src="data.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

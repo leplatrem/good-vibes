@@ -13,14 +13,31 @@ html, body {
 }
 
 #playlist a {
-  opacity: 0.7;
+  position: relative;
 }
 
-#playlist a img {
-   max-width: 100%;
+#playlist a:hover {
+  border: solid 1px white;
+}
+
+#playlist a:hover:after {
+  position: absolute;
+  content: attr(title);
+  color: white;
+  font-weight: bold;
+  bottom: 3px;
+  left: 3px;
 }
 
 #playlist a.playing {
   border: solid 3px white;
+}
+
+#playlist a img {
+  max-width: 100%;
+  opacity: 0.7;
+}
+
+#playlist a.playing img {
   opacity: 1.0;
 }
