@@ -14,6 +14,7 @@ html, body {
 
 #playlist a {
   position: relative;
+  border: solid 1px black;
 }
 
 #playlist a:hover {
