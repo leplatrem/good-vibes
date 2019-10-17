@@ -1,9 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <title>Good Vibes</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdn.plyr.io/2.0.18/plyr.css">
-  <link rel="stylesheet" href="style.css"></link>
-  <link rel="preload" href="data.json" as="fetch"></link>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="data.json">
 </head>
 <body>
   <div class="player">
@@ -17,8 +19,8 @@
       <img v-bind:src="`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`"/>
     </a>
   </div>
-  <script type="text/javascript" src="https://cdn.plyr.io/2.0.18/plyr.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script type="text/javascript" src="script.js"></script>
+  <script src="https://cdn.plyr.io/2.0.18/plyr.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="script.js"></script>
 </body>
 </html>
