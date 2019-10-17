@@ -4,12 +4,11 @@
 2. Use Browser DevTools
 3. Save HTML to file on disk
 4. Run
-5. `git commit`
+```
+$ YOUTUBE_KEY=AIzaSy...0Yc python3 extract.py < good-vibes.html
+```
+5. `git commit -a`
 6. `git push origin gh-pages`
-
-```
-$ YOUTUBE_KEY=AIzaSy....0Yc python3 extract.py < good-vibes.html
-```
 
 * See https://console.developers.google.com/apis/api/youtube.googleapis.com/
 
